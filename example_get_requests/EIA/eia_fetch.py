@@ -39,7 +39,7 @@ MAX_RETRIES = 5  # retry attempts for transient HTTP errors
 # === API KEY LOADING =========================================================
 # Always store your API key in a .env file for security and never publish it to Github.
 load_dotenv()  # reads .env file
-API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY_EIA")
 if not API_KEY:
     raise ValueError("API_KEY not found. Please set it in your .env file.")
 

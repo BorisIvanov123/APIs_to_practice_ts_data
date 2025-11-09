@@ -23,6 +23,7 @@ Data is retrieved using authenticated GET requests to the EIA API endpoints. Eac
 #### API Endpoint Documentation: https://www.eia.gov/opendata/documentation.php
 
 ***
+***
 
 ## Federal Reserve Economic Data (FRED®) API
 

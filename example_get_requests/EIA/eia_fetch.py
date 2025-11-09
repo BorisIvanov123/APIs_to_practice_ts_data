@@ -28,7 +28,7 @@ START_DATE = "2024-12-30"
 END_DATE = "2024-12-31"
 
 # Output location
-OUTPUT_FILE = Path("data/eia_data.csv")
+OUTPUT_FILE = Path("data/EIA/eia_data.csv")
 OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 # Pagination and safety parameters

@@ -16,12 +16,12 @@ import yfinance as yf
 from pathlib import Path
 from datetime import datetime, timedelta
 
-# ============================
+# ===========================
 # USER SETTINGS — EDIT THESE
-# ============================
+# ===========================
 TICKER = "SPY"               # Example: "AAPL", "TSLA", "^GSPC"
-START_DATE = None             # None → full history
-END_DATE = None               # None → latest
+START_DATE = None             # None → full history -> specify "YYYY-MM-DD" for custom start. Just follow the format
+END_DATE = None               # None → latest -> specify "YYYY-MM-DD" for custom end
 INTERVAL = "1m"               # "1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h", "1d", "1wk", "1mo"
 OUTPUT_DIR = "data/yFinance"
 # ============================

@@ -1,8 +1,6 @@
 # Time Series Forecasting with Open Data APIs  
 ### Code examples and documentation on using open-source APIs to practice time series forecasting with Python.
 
-### Open Weather 
-
 # APIs
 
 `Please note that most APIs are open source but still require registration to obtain an API key. Therefore, the scripts use a `.env` file to store API keys securely. You should create your own `.env` file and paste your API key there like this: `API_KEY=...`. Make sure you never publish or upload your `.env` file to the cloud or to any public repository.
@@ -78,5 +76,7 @@ API_KEY_FRED=your_personal_api_key_here
 
 Use the python-dotenv library to load it securely into your scripts.
 
+***
+***
 
-
+## NASA Open APIs

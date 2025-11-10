@@ -9,7 +9,7 @@ from pathlib import Path
 # ============================
 # USER SETTINGS (Edit here)
 # ============================
-SERIES_ID = "GDP"           # Example: GDP, DGS10, CPIAUCSL
+SERIES_ID = "DGS10"           # Example: GDP, DGS10, CPIAUCSL
 START = None                # Set to None to fetch from the earliest available date. If you want a specific date, use "YYYY-MM-DD"
 END = None                  # Set to None to fetch up to the latest available date. If you want a specific date, use "YYYY-MM-DD"
 # ============================
@@ -80,8 +80,10 @@ def fetch_series_data(series_id, start_date=None, end_date=None):
 
     print(f"🔄 Fetching data for '{series_id}' ...")
     data = fred_request(BASE_URL_OBS, params)
-    if not data or "observations" not in data:
-        print("❌ No observations found.")
+
+    # --- Handle malformed or missing data
+    if not data or "observations" not in data or not isinstance(data["observations"], list):
+        print("⚠️ Unexpected or empty data format returned.")
         return pd.DataFrame()
 
     df = pd.DataFrame(data["observations"])
@@ -138,4 +140,13 @@ if __name__ == "__main__":
     # --- Step 3: Save data + metadata
     save_series(df, meta, SERIES_ID, START, END)
 
-    print("✅ All done! Enjoy your data 🚀")
+    # --- Step 4: Summary
+    print("\n📈 Download Summary")
+    print("-" * 25)
+    print(f"Series ID: {SERIES_ID}")
+    print(f"Title: {meta.get('title')}")
+    print(f"Frequency: {meta.get('frequency')}")
+    print(f"Units: {meta.get('units')}")
+    print(f"Date Range: {df['date'].min().date()} → {df['date'].max().date()}")
+    print(f"Total Observations: {len(df)}")
+    print("\n✅ All done! Enjoy your data 🚀")
